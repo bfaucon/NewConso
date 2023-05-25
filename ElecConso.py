@@ -42,6 +42,7 @@ DB_SERVER ='192.168.2.10'  # MySQL : IP server (localhost if mySQL is on the sam
 DB_USER='conso'     # MySQL : user
 DB_PWD='WXH.Yrb24RdU'            # MySQL : password
 DB_BASE='NewConso'     # MySQL : database name
+DB_BASE='consumption'     # MySQL : database name
 DB_PORT=3307
 
  
