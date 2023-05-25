@@ -35,7 +35,7 @@ import  urllib.request, json
 import MySQLdb   # MySQLdb must be installed by yourself
 from threading import Timer
 from sma_sunnyboy import *
-from Send_Email import *
+from SendMail import *
 
 #import sqlite3
  
