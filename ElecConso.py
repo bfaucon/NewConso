@@ -8,21 +8,14 @@
 # version 0.4 2023-04-07#
 # Read the solar consumption directly on the SMA SunnyBoy
 # Using the code SMA-SunnyBoy found there: https://github.com/Dymerz/SMA-SunnyBoy
+# Read the HomeWizard devices via json
 #-------------------------------------------------------------------------
 # This script read the total energy produciton on sunnyboy 
 # compare the old values to the new one and save the values in a MySQL database
 #
 # tested with python 3 on Raspberry pi distribution: Raspbian GNU/Linux 11 (bullseye) 
 #-------------------------------------------------------------------------
-# CREATE TABLE IF NOT EXISTS `PiSolar` (
-#  `id` int(11) NOT NULL,
-#  `date` datetime NOT NULL,
-#  `S1` decimal(10,2) DEFAULT NULL,
-#  `S2` decimal(10,2) DEFAULT NULL
-#) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-# ;
-# 
-#===================================================================
+#=========================================================================
  
 #----------------------------------------------------------#
 #             package importation                          #
@@ -35,20 +28,20 @@ import  urllib.request, json
 import MySQLdb   # MySQLdb must be installed by yourself
 from threading import Timer
 from sma_sunnyboy import *
-from Send_Email import *
+from SendMail import *
 
 #import sqlite3
  
 #-----------------------------------------------------------------#
 #  constants : use your own values / utilisez vos propres valeurs #
 #-----------------------------------------------------------------#
-PATH_THERM = "/home/pi/consumption/" #path to this script
-PATH_LOG = "/home/pi/consumption/log" #path to this script
+PATH_THERM = "/home/pi/NewConso/" #path to this script
+PATH_LOG = "/home/pi/NewConso/log" #path to this script
 
 DB_SERVER ='192.168.2.10'  # MySQL : IP server (localhost if mySQL is on the same machine)
 DB_USER='conso'     # MySQL : user
 DB_PWD='WXH.Yrb24RdU'            # MySQL : password
-DB_BASE='consumption'     # MySQL : database name
+DB_BASE='NewConso'     # MySQL : database name
 DB_PORT=3307
 
  
@@ -60,16 +53,16 @@ counter3 = "http://192.168.2.22/api/v1/data" #Homewizard P1
 counter4 = "http://192.168.2.23/api/v1/data" #HomeWizard SDM230 Chauffe eau
 counter5 = "http://192.168.2.24/api/v1/data" #HomeWizard Socket
 counter6 = "http://192.168.2.25/api/v1/data" #HomeWizard SDM230 Jacuzzi
-old1 = "/home/pi/consumption/oldSMAG1"
-old2 = "/home/pi/consumption/oldSMAD1"
-old3 = "/home/pi/consumption/oldTPI1"
-old4 = "/home/pi/consumption/oldTPI2"
-old5 = "/home/pi/consumption/oldTPE1"
-old6 = "/home/pi/consumption/oldTPE2"
-old7 = "/home/pi/consumption/oldTPI3"
-old8 = "/home/pi/consumption/oldTPI4" 
-old9 = "/home/pi/consumption/oldSocket1"
-old10 = "/home/pi/consumption/oldJacuzzi"
+old1 = "/home/pi/NewConso/oldSMAG1"
+old2 = "/home/pi/NewConso/oldSMAD1"
+old3 = "/home/pi/NewConso/oldTPI1"
+old4 = "/home/pi/NewConso/oldTPI2"
+old5 = "/home/pi/NewConso/oldTPE1"
+old6 = "/home/pi/NewConso/oldTPE2"
+old7 = "/home/pi/NewConso/oldTPI3"
+old8 = "/home/pi/NewConso/oldTPI4" 
+old9 = "/home/pi/NewConso/oldSocket1"
+old10 = "/home/pi/NewConso/oldJacuzzi"
 #----------------------------------------------------------#
 #             Variables                                    #
 #----------------------------------------------------------#
