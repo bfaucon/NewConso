@@ -5,7 +5,7 @@
 #-------------------------------------------------------------------------
 # by Bruno Faucon - 2023
 # version 0.1 2023-04-11
-# test console + Email for alerting
+# test console + Email for alertingdddd
 #-------------------------------------------------------------------------
 # tested with python 2.7 on Raspberry pi (wheezy) and MariaDB 5.5.34 on NAS Synology DS411J (DSM 5)
 #
