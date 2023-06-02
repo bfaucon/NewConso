@@ -25,8 +25,8 @@ from threading import Timer
 #-----------------------------------------------------------------#
 #  constants : use your own values / utilisez vos propres valeurs #
 #-----------------------------------------------------------------#
-PATH_THERM = "/home/pi/consumption/" #path to this script
-PATH_LOG = "/home/pi/consumption/log" #path to this script
+PATH_THERM = "/home/pi/NewConso/" #path to this script
+PATH_LOG = "/home/pi/NewConso/log" #path to this script
 DB_SERVER ='192.168.2.10'  # MySQL : IP server (localhost if mySQL is on the same machine)
 DB_USER='conso'     # MySQL : user
 DB_PWD='WXH.Yrb24RdU'            # MySQL : password

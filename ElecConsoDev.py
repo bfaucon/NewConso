@@ -13,6 +13,7 @@
 # compare the old values to the new one and save the values in a MySQL database
 #
 # tested with python 3 on Raspberry pi distribution: Raspbian GNU/Linux 11 (bullseye) 
+#-------------------------------------------------------------------------
 
 #===================================================================
  
@@ -29,19 +30,19 @@ from threading import Timer
 from sma_sunnyboy import *
 from SendMail import *
 
-#import sqlite3
+#import sqlite3s
  
 #-----------------------------------------------------------------#
 #  constants : use your own values / utilisez vos propres valeurs #
 #-----------------------------------------------------------------#
 PATH_THERM = "/home/pi/NewConso/" #path to this script
-PATH_LOG = "/home/pi/NewConso/log/" #path to this script
+PATH_LOG = "/home/pi/NewConso/test/" #path to this script
 
 DB_SERVER ='192.168.2.10'  # MySQL : IP server (localhost if mySQL is on the same machine)
 DB_USER='conso'     # MySQL : user
 DB_PWD='WXH.Yrb24RdU'            # MySQL : password
-#DB_BASE='NewConso'     # MySQL : database name
-DB_BASE='consumption'     # MySQL : database name
+DB_BASE='NewConso'     # MySQL : database name
+#DB_BASE='consumption'     # MySQL : database name
 DB_PORT=3307
 
  
@@ -226,7 +227,7 @@ def get_delta(counter,newvalue):
 if len(sys.argv) > 1:
    debug = sys.argv[1]
 #else:
-#   print ("pas d'arguments") 
+#   print ("pas d'arguments")
 d1 = datetime.datetime.now()
 d2 = d1.replace(minute=5*(d1.minute // 5), second=0, microsecond=0)
 log (d1, 'info')
