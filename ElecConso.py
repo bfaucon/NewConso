@@ -10,7 +10,7 @@
 # Using the code SMA-SunnyBoy found there: https://github.com/Dymerz/SMA-SunnyBoy
 # Read the different HomeWizard Sensor via http/Json
 #-------------------------------------------------------------------------
-# This script read the total energy produciton on sunnyboy 
+# This script read the total energy produciton on sunnyboy & HomeWizard
 # compare the old values to the new one and save the values in a MySQL database
 #
 # tested with python 3 on Raspberry pi distribution: Raspbian GNU/Linux 11 (bullseye) 
